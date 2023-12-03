@@ -1,0 +1,14 @@
+#scikit-learn==0.24.2
+#pandas==1.3.3
+onnx
+skl2onnx
+#matplotlib==3.4.3
+#seaborn==0.11.2
+#numpy==1.21.2
+onnxruntime
+gunicorn
+jinja2
+fastapi==0.104.1
+uvicorn==0.24.0.post1
+python-multipart==0.0.5
+

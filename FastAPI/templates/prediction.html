@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+        Othman HERBA 
+        Depression Diagnosis Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        #wrap {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .frame2 {
+            margin-top: 20px;
+        }
+
+        .login {
+            text-align: center;
+        }
+
+        .entryForm {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .entryForm th,
+        .entryForm td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .entryForm input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .entryForm select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .btns {
+            text-align: center;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-clear {
+            background-color: #ccc;
+        }
+
+        .btn-clear:hover {
+            background-color: #ddd;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .prediction-text {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <h1> Othman HERBA  :
+            Predict Depression Diagnosis</h1>
+        <section id="depression" class="frame2">
+            <div class="login">
+                <form action="{{ url_for('predict') }}" method="post">
+                    <table class="entryForm">
+                        <tr>
+                            <th>Gender:</th>
+                            <td>
+                                <select name="Gender">
+                                    <option value="0">Female</option>
+                                    <option value="1">Male</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Age:</th>
+                            <td><input type="text" name="Age" placeholder="Age" /></td>
+                        </tr>
+                        <tr>
+                            <th>Course:</th>
+                            <td>
+                                <select name="Course">
+                                    <option value="0">ALA</option>
+                                    <option value="1">Accounting</option>
+                                    <option value="2">BCS</option>
+                                    <option value="3">BENL</option>
+                                    <option value="4">BIT</option>
+                                    <option value="5">Banking Studies</option>
+                                    <option value="6">Benl</option>
+                                    <option value="7">Biomedical science</option>
+                                    <option value="8">Biotechnology</option>
+                                    <option value="9">Business Administration</option>
+                                    <option value="10">CTS</option>
+                                    <option value="11">Communication</option>
+                                    <option value="12">DIPLOMA TESL</option>
+                                    <option value="13">Diploma Nursing</option>
+                                    <option value="14">ENM</option>
+                                    <option value="15">Econs</option>
+                                    <option value="16">Engine</option>
+                                    <option value="17">Engineering</option>
+                                    <option value="18">Fiqh</option>
+                                    <option value="19">Fiqh fatwa</option>
+                                    <option value="20">Human Resources</option>
+                                    <option value="21">Human Sciences</option>
+                                    <option value="22">IT</option>
+                                    <option value="23">Irkhs</option>
+                                    <option value="24">Islamic Education</option>
+                                    <option value="25">Islamic education</option>
+                                    <option value="26">KENMS</option>
+                                    <option value="27">KIRKHS</option>
+                                    <option value="28">KOE</option>
+                                    <option value="29">Kirkhs</option>
+                                    <option value="30">Koe</option>
+                                    <option value="31">Kop</option>
+                                    <option value="32">Law</option>
+                                    <option value="33">Laws</option>
+                                    <option value="34">MHSC</option>
+                                    <option value="35">Malcom</option>
+                                    <option value="36">Marine science</option>
+                                    <option value="37">Mathematics</option>
+                                    <option value="38">Nursing</option>
+                                    <option value="39">Pendidikan Islam</option>
+                                    <option value="40">Pendidikan Islam</option>
+                                    <option value="41">Pendidikan Islam</option>
+                                    <option value="42">Psychology</option>
+                                    <option value="43">Radiography</option>
+                                    <option value="44">TAASL</option>
+                                    <option value="45">Usuluddin</option>
+                                    <option value="46">Engineering</option>
+                                    <option value="47">KOE</option>
+                                    <option value="48">Psychology</option>
+
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Year of Study:</th>
+                            <td><input type="text" name="Year_of_Study" placeholder="Year of Study" /></td>
+                        </tr>
+                        <tr>
+                            <th>CGPA:</th>
+                            <td><input type="text" name="CGPA" placeholder="CGPA" /></td>
+                        </tr>
+                        <tr>
+                            <th>Marital Status:</th>
+                            <td>
+                                <select name="Marital_Status">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Anxiety:</th>
+                            <td>
+                                <select name="Anxiety">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Panic Attack:</th>
+                            <td>
+                                <select name="Panic_Atack">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Treatment:</th>
+                            <td>
+                                <select name="Treatment">
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="btns">
+                        <button type="reset" class="btn btn-clear">Reset</button>
+                        <button type="submit" class="btn btn-primary btn-block">Predict</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <br>
+        <br>
+        <div class="result">
+            <p class="prediction-text">{{ prediction_text }}</p>
+        </div>
+    </div>
+</body>
+</html>
